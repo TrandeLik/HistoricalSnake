@@ -1,0 +1,132 @@
+.version.loser{color:#0000E5;
+		background-color:#D81B94;
+	}
+
+
+
+body { 
+overflow-y: hidden; 
+}
+
+
+#page{
+	z-index:1;
+		/*min-height:500px;*/
+	background-image:none;
+	border-width:0px;
+	border-color:#000000;
+	background-color:transparent;
+	width:100%;
+	/*max-width:960px;*/
+	margin-left:auto;
+	margin-right:auto;
+	}
+
+
+#u97{
+	z-index:2;
+	position:relative;
+	margin-right:-10000px;
+	width:100%;
+	}
+
+#u248{z-index:4;
+		background-color:transparent;
+	position:relative;
+	margin-right:-10000px;
+	margin-top:81px;
+	width:57.19%;
+	left:22.4%;
+	}
+
+#u268{z-index:6;
+		background-color:transparent;
+	position:relative;
+	margin-right:-10000px;
+	margin-top:239px;
+	width:68.34%;
+	left:16.88%;
+	}
+
+#u278{z-index:8;
+		background-color:transparent;
+	position:relative;
+	margin-right:-10000px;
+	margin-top:313px;
+	width:68.34%;
+	left:16.88%;
+	}
+
+#u288{z-index:10;
+		background-color:transparent;
+	position:relative;
+	margin-right:-10000px;
+	margin-top:388px;
+	width:68.34%;
+	left:16.88%;
+	}
+
+#u298{z-index:12;
+		background-color:transparent;
+	position:relative;
+	margin-right:-10000px;
+	margin-top:239px;
+	width:68.65%;
+	left:16.88%;
+	}
+
+#u298:hover{opacity:0;
+		-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter:alpha(opacity=0);
+	min-height:0px;
+	width:68.65%;
+	margin:239px -10000px 0px 0%;
+	}
+
+#u308{z-index:14;
+		background-color:transparent;
+	position:relative;
+	margin-right:-10000px;
+	margin-top:314px;
+	width:68.34%;
+	left:16.88%;
+	}
+
+#u308:hover{opacity:0;
+		-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter:alpha(opacity=0);
+	min-height:0px;
+	width:68.34%;
+	margin:314px -10000px 0px 0%;
+	}
+
+#u318{z-index:16;
+		background-color:transparent;
+	position:relative;
+	margin-right:-10000px;
+	margin-top:389px;
+	width:68.34%;
+	left:16.88%;
+	}
+
+#u318:hover{opacity:0;
+		-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter:alpha(opacity=0);
+	min-height:0px;
+	width:68.34%;
+	margin:389px -10000px 0px 0%;
+	}
+
+.css_verticalspacer .verticalspacer{height:calc(100vh - 563px);
+		}
+
+	#muse_css_mq,.html{background-color:#FFFFFF;
+		}
+
+	body{position:relative;
+		min-width:320px;
+	}
+
+#u248_img,#u268_img,#u278_img,#u288_img,#u298_img,#u308_img,#u318_img,#u97_img{width:100%;
+	}
+

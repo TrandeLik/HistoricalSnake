@@ -1,0 +1,78 @@
+<manifest alg="2" build="2017.0.3.363" opt="false" iceEnabled="true" iceMarkupVersion="2" iceEnabledOptions="link,responsive,cachebuster,textStyling" exportTarget="other" domain="hisstorical_snake.com" resolutions="1x" timestamp="1547972614096">
+  <folder name="css">
+    <file name="site_global.css" crc="443350757"/>
+    <file name="master_______-a.css" crc="248989791" ref="index:rules:all-questions:play:loser:mistakes"/>
+    <file name="index.css" crc="514430460" ref="index"/>
+    <file name="rules.css" crc="3965012151" ref="rules"/>
+    <file name="all-questions.css" crc="3965012151" ref="all-questions"/>
+    <file name="play.css" crc="3965012151" ref="play"/>
+    <file name="loser.css" crc="3856145300" ref="loser"/>
+    <file name="mistakes.css" crc="3965012151" ref="mistakes"/>
+  </folder>
+  <folder name="scripts">
+    <file name="jquery-1.8.3.min.js" crc="209076791" ref="index:play:rules:all-questions:loser:mistakes"/>
+    <file name="museutils.js" crc="46400467" ref="index:play:rules:all-questions:loser:mistakes"/>
+    <file name="whatinput.js" crc="86476730" ref="index:play:rules:all-questions:loser:mistakes"/>
+    <file name="museconfig.js" crc="436936948" ref="index:play:rules:all-questions:loser:mistakes"/>
+    <file name="jquery.watch.js" crc="4178585335" ref="index:play:rules:all-questions:loser:mistakes"/>
+    <file name="require.js" crc="85721165" ref="index:play:rules:all-questions:loser:mistakes"/>
+  </folder>
+  <folder name="images">
+    <file name="background.jpg" crc="4010368297" seo="true" ref="index:play:rules:all-questions:loser:mistakes">
+      <caption webpage="index" alt=""/>
+      <caption webpage="play" alt=""/>
+      <caption webpage="rules" alt=""/>
+      <caption webpage="all-questions" alt=""/>
+      <caption webpage="mistakes" alt=""/>
+      <caption webpage="loser" alt=""/>
+    </file>
+    <file name="logo.gif" crc="496726859" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="start2.png" crc="4025920196" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="start1.png" crc="3771487782" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="rules2.png" crc="479672731" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="rules1.png" crc="4137742697" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="quesions2.png" crc="3878630169" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="questions1.png" crc="4113297260" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="loser.png" crc="249541440" seo="true" ref="loser">
+      <caption webpage="loser" alt=""/>
+    </file>
+    <file name="mistakes2.png" crc="4150729133" seo="true" ref="loser">
+      <caption webpage="loser" alt=""/>
+    </file>
+    <file name="new_game2.png" crc="49515628" seo="true" ref="loser">
+      <caption webpage="loser" alt=""/>
+    </file>
+    <file name="main2.png" crc="4152543210" seo="true" ref="loser">
+      <caption webpage="loser" alt=""/>
+    </file>
+    <file name="mistakes.png" crc="185793326" seo="true" ref="loser">
+      <caption webpage="loser" alt=""/>
+    </file>
+    <file name="new_game.png" crc="299853750" seo="true" ref="loser">
+      <caption webpage="loser" alt=""/>
+    </file>
+    <file name="main.png" crc="4144422779" seo="true" ref="loser">
+      <caption webpage="loser" alt=""/>
+    </file>
+  </folder>
+  <file name="index.html" crc="3987248989" seo="true" mt="1547933414137" redirect="true"/>
+  <file name="play.html" crc="478321018" seo="true" mt="1547933125905" redirect="true"/>
+  <file name="rules.html" crc="4051619862" seo="true" mt="1547933136974" redirect="true"/>
+  <file name="all-questions.html" crc="432074938" seo="true" mt="1547933140078" redirect="true"/>
+  <file name="loser.html" crc="4103107454" seo="true" mt="1547972579819" redirect="true"/>
+  <file name="mistakes.html" crc="347889539" seo="true" mt="1547972332323" redirect="true"/>
+</manifest>
