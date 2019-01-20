@@ -1,163 +1,181 @@
+var canv = document.getElementById('mc');
 window.onload = function() {
-  		document.addEventListener('keydown', changeDirection);
-  		setInterval(loop, 1000/60);
-	};
+    var n = window.innerWidth;
+    var k = window.innerHeight;
+    var val = n.toString() + "px";
+    var vul = k.toString() +"px";
+    canv.style.width = val;
+    canv.style.height = vul;
+    console.log(val);
+    document.addEventListener('keydown', changeDirection);
+    setInterval(loop, 1000/60);
+};
 
-	var
-  		canv = document.getElementById('mc'),
-  		ctx	= canv.getContext('2d'),
-  		gs = fkp = false,
-  		speed = baseSpeed = 3,
-  		xv = yv	= 0,
-  		px = ~~(canv.width) / 2,
-  		py = ~~(canv.height) / 2,
-  		pw = ph	= 20,
-  		aw = ah	= 20,
-  		apples = [],
-  		trail = [],
-  		tail = 10,
-  		tailSafeZone = 20,
-  		cooldown = false,
-  		score = 0;
+var
+    ctx	= canv.getContext('2d'),
+    gs = fkp = false,
+    speed = baseSpeed = 1,//скорость движения
+    xv = yv	= 0,//скорость по х и по y
+    px = ~~(canv.width) / 2,
+    py = ~~(canv.height) / 2,
+    pw = ph	= 5,
+    aw = ah	= 5,
+    apples = [],
+    trail = [],
+    tail = 10,
+    tailSafeZone = 20,
+    cooldown = false,
+    score = 0,
+    questions = [["В каком году началась Гражданская война на территории бывшей Российской империи?", "1918", false],["В каком году произошло восстание декабристов в Петербурге?", "1825", false],["В каком году произошла Всероссийская Октябрьская стачка?", "1905", false], ["В каком году закончилась ВОВ?", "1945", false],["В каком году произошла Отечественная война? ", "1812", false], ["Кто был первым правителем Руси?", "Рюрик", false],["Кто был последним правителем из династии Романовых?", "Николай 2", false],["В каком году сделали первую резиновую уточку?", "Хз", false],["В каком году пала Западная Римская империя?", "476", false],["В каком году произошло «Бостонское чаепитие»?", "1773", false],["В каком году была принята Декларация независимости США?", "1776", false],["В каком году был подписан Брестский мир?", "1918", false], ["Сколько лет длилась столетняя война?", "116", false], ["В каком году началась война Алой и Белой розы в Англии?","1455",false],["Период правления Ивана Грозного","1535-1584",false],["Кто был первым русским императором?", "Петр 1",false],["Год основания Москвы","1147",false]];
 
-	//отвечаем на вопрос
-	function opr() {
-        let questions = [["В каком году началась Гражданская война на территории бывшей Российской империи?", "1918"],["В каком году произошло восстание декабристов в Петербурге?", "1825"],["В каком году произошла Всероссийская Октябрьская стачка?", "1905"], ["В каком году закончилась ВОВ?", "1945"],["В каком году произошла Отечественная война? ", "1812"], ["Кто был первым правителем Руси?", "Рюрик"],["Кто был последним правителем из династии Романовых?", "Николай 2"],["В каком году сделали первую резиновую уточку?", "Хз"],["В каком году пала Западная Римская империя?", "476"],["В каком году произошло «Бостонское чаепитие»?", "1773"],["В каком году была принята Декларация независимости США?", "1776"],["В каком году был подписан Брестский мир?", "1918"]];
-        let max = 11;
-        let i = Math.floor(Math.random() * (max + 1));
-        let quest = questions[i][0];
-        let res = prompt(quest);
-        let answer = questions[i][1];
-        if (res === answer){
-            return true;
-        } else {
-            while (res !== answer) {
-                res = prompt("Неправильный ответ. Скопируйте правильный ответ : " + answer);
-            }
+//отвечаем на вопрос
+function opr() {
+    let dop = [];
+    dop.length = 0;
+    for (i = 0; i < questions.length; i++) {
+        if (questions[i][2] !== true) {
+            dop.push(i)
+        }
+    }
+    let max = dop.length;
+    if (max === 0) {
+        document.location.href = "winner.html";
+    }
+    let index = Math.floor(Math.random() * (max));
+    let quest = questions[dop[index]][0];
+    let res = prompt(quest);
+    let answer = questions[dop[index]][1];
+    if (res === answer) {
+        questions[dop[index]][2] = true;
+        return true;
+    } else {
+        while (res !== answer) {
+            res = prompt("Неправильный ответ. Скопируйте правильный ответ : " + answer);
             return false;
         }
-	}
-	//основной цикл игры
-	function loop() {
-  		ctx.fillStyle = 'black';
-  		ctx.fillRect(0, 0, canv.width, canv.height);
+    }
+}
+//основной цикл игры
+function loop() {
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, canv.width, canv.height);
 
-  		// изменяем координату по осям
-  		px += xv;
-  		py += yv;
+    // изменяем координату по осям
+    px += xv;
+    py += yv;
 
-  		// телепортирум
-  		if( px > canv.width )
-    		{document.location.href ="loser.html"}
+    // телепортирум
+    if( px > canv.width )
+    {document.location.href ="loser.html"}
 
-  		if( px + pw < 0 )
-    		{document.location.href ="loser.html"}
+    if( px + pw < 0 )
+    {document.location.href ="loser.html"}
 
-  		if( py + ph < 0 )
-    		{document.location.href ="loser.html"}
+    if( py + ph < 0 )
+    {document.location.href ="loser.html"}
 
-  		if( py > canv.height )
-    		{document.location.href ="loser.html"}
+    if( py > canv.height )
+    {document.location.href ="loser.html"}
 
-  		// рисуем змейку
-  		ctx.fillStyle = 'lime';
-  		for( var i = 0; i < trail.length; i++ ) {
-    		ctx.fillStyle = trail[i].color || 'lime';
-    		ctx.fillRect(trail[i].x, trail[i].y, pw, ph);
-  		}
+    // рисуем змейку
+    ctx.fillStyle = 'lime';
+    for( var i = 0; i < trail.length; i++ ) {
+        ctx.fillStyle = trail[i].color || 'lime';
+        ctx.fillRect(trail[i].x, trail[i].y, pw, ph);
+    }
 
-  		trail.push({x: px, y: py, color: ctx.fillStyle});
+    trail.push({x: px, y: py, color: ctx.fillStyle});
 
-  		// limiter
-  		if( trail.length > tail ) {
-    		trail.shift();
-  		}
+    // ограничение
+    if( trail.length > tail ) {
+        trail.shift();
+    }
 
-  		// eaten
-  		if( trail.length > tail ) {
-    		trail.shift();
-  		}
+    // съедено
+    if( trail.length > tail ) {
+        trail.shift();
+    }
 
-  		// self collisions
-  		if( trail.length >= tail && gs ) {
-    		for( var i = trail.length - tailSafeZone; i >= 0; i-- ) {
-      			if((px < (trail[i].x + pw)) && (px + pw > trail[i].x) && (py < (trail[i].y + ph)) && (py + ph > trail[i].y)) {
-					document.location.href ="loser.html"
-				}
-    		}
-  		}
+    // перекусил себя
+    if( trail.length >= tail && gs ) {
+        for( var i = trail.length - tailSafeZone; i >= 0; i-- ) {
+            if((px < (trail[i].x + pw)) && (px + pw > trail[i].x) && (py < (trail[i].y + ph)) && (py + ph > trail[i].y)) {
+                document.location.href ="loser.html"
+            }
+        }
+    }
 
-  		// paint apples
-  		for( var a = 0; a < apples.length; a++ ) {
-  			ctx.fillStyle = apples[a].color;
-    		ctx.fillRect(apples[a].x, apples[a].y, aw, ah);
-  		}
+    // яблочки
+    for( var a = 0; a < apples.length; a++ ) {
+        ctx.fillStyle = apples[a].color;
+        ctx.fillRect(apples[a].x, apples[a].y, aw, ah);
+    }
 
-  		// check for snake head collisions with apples
-  		for( var a = 0; a < apples.length; a++ ) {
-    		if((px < (apples[a].x + pw)) && (px + pw > apples[a].x) && (py < (apples[a].y + ph)) && (py + ph > apples[a].y)) {
-      			// got collision with apple
-      			apples.splice(a, 1); // remove this apple from the apples list
-	  			if (opr()) {
-		  			tail += 10; // add tail length
-		  			speed += .1; // add some speed
-	  			}
-      			spawnApple(); // spawn another apple(-s)
-      			break;
-    		}
-  		}
+    // съедение яблока
+    for( var a = 0; a < apples.length; a++ ) {
+        if((px < (apples[a].x + pw)) && (px + pw > apples[a].x) && (py < (apples[a].y + ph)) && (py + ph > apples[a].y)) {
+            apples.splice(a, 1);
+            if (opr()) {
+                tail += 10; // удлиняем
+                speed += .1; // увеличиваем скорость
+            }
+            spawnApple(); // рисуем новое яблоко
+            break;
+        }
+    }
 }
 
-// apples spawner
+// создаем яблоки
 function spawnApple() {
-  	var
-    	newApple = {
-      	x: ~~(Math.random() * canv.width),
-		y: ~~(Math.random() * canv.height),
-      	color: 'red'
-    	};
+    var
+        newApple = {
+            x: ~~(Math.random() * canv.width),
+            y: ~~(Math.random() * canv.height),
+            color: 'red'
+        };
 
-  	// forbid to spawn near the edges
-  	if((newApple.x < aw || newApple.x > canv.width - aw) || (newApple.y < ah || newApple.y > canv.height - ah)) {
-    	spawnApple();
-    	return;
-  	}
+    // ограничение появления яблок
+    if((newApple.x < 10*aw || newApple.x > canv.width - 10*aw) || (newApple.y < ah*10 || newApple.y > canv.height - ah*10)) {
+        spawnApple();
+        return;
+    }
 
-  	// check for collisions with tail element, so no apple will be spawned in it
-  	for( var i = 0; i < tail.length; i++ ) {
-    	if((newApple.x < (trail[i].x + pw)) && (newApple.x + aw > trail[i].x) && (newApple.y < (trail[i].y + ph)) && (newApple.y + ah > trail[i].y)) {
-      		// got collision
-      		spawnApple();
-      		return;
-		}
-  	}
+    // яблоки не рисуются в голове и хвосте
+    for( var i = 0; i < tail.length; i++ ) {
+        if((newApple.x < (trail[i].x + pw)) && (newApple.x + aw > trail[i].x) && (newApple.y < (trail[i].y + ph)) && (newApple.y + ah > trail[i].y)) {
+            // got collision
+            spawnApple();
+            return;
+        }
+    }
 
-  	apples.push(newApple);
+    apples.push(newApple);
 }
 
 // меняем направление движения
 function changeDirection(evt) {
-  	if( !fkp && [65,87,68,83, 37, 38, 39, 40].indexOf(evt.keyCode) > -1 ) {
-    	setTimeout(function() {gs = true;}, 1000);
-    	fkp = true;
-    	spawnApple();
-  	}
+    if( !fkp && [13].indexOf(evt.keyCode) > -1 ) {
+        xv = 0; yv = -speed;
+        setTimeout(function() {gs = true;}, 1000);
+        fkp = true;
+        spawnApple();
+    }
 
-  	if( cooldown )
-    	{return false;}
+    if( cooldown )
+    {return false;}
 
-  	if( ((evt.keyCode == 65) || (evt.keyCode == 37)) && !(xv > 0) ) // влево
-    	{xv = -speed; yv = 0;}
+    if( ((evt.keyCode == 65) || (evt.keyCode == 37)) && !(xv > 0) ) // влево
+    {xv = -speed; yv = 0;}
 
-  	if( ((evt.keyCode == 87) || (evt.keyCode == 38)) && !(yv > 0) ) // вверх
-    	{xv = 0; yv = -speed;}
+    if( ((evt.keyCode == 87) || (evt.keyCode == 38)) && !(yv > 0) ) // вверх
+    {xv = 0; yv = -speed;}
 
-  	if( ((evt.keyCode == 68)|| (evt.keyCode == 39)) && !(xv < 0) ) // вправо
-    	{xv = speed; yv = 0;}
+    if( ((evt.keyCode == 68)|| (evt.keyCode == 39)) && !(xv < 0) ) // вправо
+    {xv = speed; yv = 0;}
 
-  	if( ((evt.keyCode == 83) || (evt.keyCode == 40)) && !(yv < 0) ) // вниз
-    	{xv = 0; yv = speed;}
+    if( ((evt.keyCode == 83) || (evt.keyCode == 40)) && !(yv < 0) ) // вниз
+    {xv = 0; yv = speed;}
 
-  	cooldown = true;
-  	setTimeout(function() {cooldown = false;}, 100);
+    cooldown = true;
+    setTimeout(function() {cooldown = false;}, 100);
 }
